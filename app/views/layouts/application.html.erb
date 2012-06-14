@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mywikirev</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+<style type="text/css">
+body{
+background:url(./images/glob.jpg);
+}
+h1,h2,h3,p,a{
+font-family:sans-serif;
+margin:0;
+}
+#user_nav{
+text-align:center;
+background:#eeeeee;
+}
+#greet{
+font:2em Sans-serif;
+text-align:center;
+margin:10px;
+}
+#blog{
+text-align:center;
+font:1.5em Sans-serif;
+margin:10px;
+}
+.content{
+width:960px;
+background:transparent;
+border:2px solid ;
+margin:0 auto;
+ -moz-border-radius-topleft: 30px;
+    -webkit-border-top-left-radius: 30px;
+
+}
+.posts{
+padding:20px;
+}
+.controls{
+float:right;
+}
+.login,.signup{
+width:250px;
+height:200px;
+position:absolute;
+top:50%;
+left:50%;
+margin-top:-125px;
+margin-left:-100px;
+}
+#flash{
+text-align:center;
+font-size:1.5em;
+}
+.addrev{
+width:400px;
+margin:0 auto;
+}
+.specials{
+width:400px;
+float:left;
+margin-top:30px;
+}
+.features{
+width:400px;
+float:right;
+margin-top:30px;
+}
+</style>
+
+  </head>
+<body>
+<div id="user_nav">
+  <% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log out", log_out_path %>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or
+    <%= link_to "log in", log_in_path %>
+  <% end %>
+</div>
+<div id="flash">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+</div>
+<%= yield %>
+
+</body>
+</html>

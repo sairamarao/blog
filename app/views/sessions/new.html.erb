@@ -1,0 +1,36 @@
+<div id="blog">
+<h1>Blog on Global Warming</h1>
+</div>
+
+<div class="specials">
+<h2>Specialities of this blog</h2>
+<ul>
+<li>Login System was developed from scratch</li>
+<li>Password is encrypted..So safety is assured</li>
+<li>Control panel enables you to access content create only by you</li>
+</ul>
+</div>
+<div class="features">
+<h2>Features of this blog</h2>
+<ul>
+<li>One can edit or delete posts created by them only</li>
+<li>By above feature we ensure that no one else edits or deletes your post</li>
+<li>you can access the blog only after you login</li>
+<li>However ,Admin has rights to alter every post</li>
+</ul>
+</div>
+<div class="login">
+<h1>Log in</h1>
+
+<%= form_tag sessions_path do %>
+  <p>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </p>
+  <p>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </p>
+  <p class="button"><%= submit_tag "Log in" %></p>
+<% end %>
+</div>
